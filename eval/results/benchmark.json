@@ -1,0 +1,31 @@
+{
+  "measured_at": "2026-10-15T17:35:44+00:00",
+  "machine": {
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "python": "3.12.8",
+    "processor": "arm",
+    "cpus": 10
+  },
+  "workload": "200 copies of the 22-message fixture log, unique ids",
+  "first_pass": {
+    "messages": 4400,
+    "seconds": 5.609,
+    "messages_per_second": 784.5,
+    "latency_ms_p50": 0.573,
+    "latency_ms_p95": 9.53,
+    "latency_ms_max": 24.043
+  },
+  "replay_pass": {
+    "messages": 4400,
+    "seconds": 1.817,
+    "messages_per_second": 2421.8,
+    "latency_ms_p50": 0.096,
+    "latency_ms_p95": 1.623,
+    "latency_ms_max": 23.616
+  },
+  "store_after_first_pass": {
+    "events": 3000,
+    "event_versions": 3000
+  },
+  "replay_changed_store": false
+}

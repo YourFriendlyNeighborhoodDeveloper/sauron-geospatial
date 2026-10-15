@@ -1,0 +1,150 @@
+# SAURON configuration. Secrets never live here: credentials, contact
+# details and API keys come from environment variables (see .env.example).
+
+app:
+  host: "127.0.0.1"
+  port: 8050
+  debug: false
+
+logging:
+  level: "INFO"
+  format: "json"
+
+metrics:
+  host: "127.0.0.1"
+  port: 8000
+
+storage:
+  path: "data/sauron.db"
+
+reports:
+  dir: "reports"
+  csv_export_interval_secs: 60
+
+pipeline:
+  transport: "kafka"            # kafka | local (in-process queue, not durable)
+  maintenance_interval_secs: 30
+
+kafka:
+  bootstrap_servers: "127.0.0.1:9092"
+  topic_raw: "hazards.raw"
+  group_id: "sauron-processor"
+  client_id: "sauron"
+
+http:
+  user_agent: "sauron-hazards/2.0"
+  contact_env: "SAURON_CONTACT_EMAIL"
+  timeout_secs: 15
+
+geocoding:
+  gazetteer_path: "data/gazetteer.db"
+  gazetteer_dir: "data/gazetteer"
+  gazetteer_year: 2025
+  outlets_path: "config/outlets.yaml"
+  nominatim:
+    enabled: false
+    base_url: "https://nominatim.openstreetmap.org"
+    min_interval_secs: 1.1
+    cache_ttl_days: 30
+
+lifecycle:
+  ttl_minutes:
+    rss: 360
+    open_data: 360
+    usgs: 1440
+    open_meteo: 45
+  correlation:
+    h3_resolution: 7
+    neighbor_rings: 1
+    window_minutes: 180
+    min_title_similarity: 0.3
+
+feeds:
+  nws_alerts:
+    type: nws
+    url: "https://api.weather.gov/alerts/active"
+    poll_interval: 60
+    region_type: "land"
+    zone_fetch_limit: 40
+    events:
+      Tornado Warning: tornado
+      Tornado Watch: tornado
+      Severe Thunderstorm Warning: thunderstorm
+      Severe Thunderstorm Watch: thunderstorm
+      Flash Flood Warning: flooding
+      Flash Flood Watch: flooding
+      Flood Warning: flooding
+      Flood Watch: flooding
+      Flood Advisory: flooding
+      Blizzard Warning: snow
+      Winter Storm Warning: snow
+      Winter Storm Watch: snow
+      Winter Weather Advisory: snow
+      Lake Effect Snow Warning: snow
+      Ice Storm Warning: ice
+      Dense Fog Advisory: fog
+      Freezing Fog Advisory: fog
+      Dense Smoke Advisory: smoke
+      High Wind Warning: wind
+      High Wind Watch: wind
+      Wind Advisory: wind
+      Extreme Wind Warning: wind
+      Dust Storm Warning: dust
+      Blowing Dust Advisory: dust
+      Hurricane Warning: tropical
+      Hurricane Watch: tropical
+      Tropical Storm Warning: tropical
+      Tropical Storm Watch: tropical
+      Typhoon Warning: tropical
+      Typhoon Watch: tropical
+      Red Flag Warning: fire_weather
+      Avalanche Warning: avalanche
+
+  # Open-Meteo's free API is for non-commercial use only. Set OPEN_METEO_API_KEY
+  # (paid plan) before any commercial deployment, or disable this feed.
+  open_meteo:
+    type: open_meteo
+    poll_interval: 300
+    api_key_env: "OPEN_METEO_API_KEY"
+    thresholds:
+      wind_gust_kmh: 72          # ~45 mph, NWS wind advisory criterion
+      wind_gust_severe_kmh: 93   # ~58 mph, NWS high wind warning criterion
+      dense_fog_visibility_m: 400
+      fog_visibility_m: 1000
+      heavy_snow_cmh: 2.5
+      heavy_rain_mmh: 7.6
+      extreme_rain_mmh: 25
+    points:
+      - {name: "SF Downtown", lat: 37.7749, lon: -122.4194}
+      - {name: "Los Angeles", lat: 34.0522, lon: -118.2437}
+      - {name: "Seattle",     lat: 47.6062, lon: -122.3321}
+      - {name: "Denver",      lat: 39.7392, lon: -104.9903}
+      - {name: "Chicago",     lat: 41.8781, lon: -87.6298}
+      - {name: "Dallas",      lat: 32.7767, lon: -96.7970}
+      - {name: "Miami",       lat: 25.7617, lon: -80.1918}
+      - {name: "Atlanta",     lat: 33.7490, lon: -84.3880}
+      - {name: "Boston",      lat: 42.3601, lon: -71.0589}
+      - {name: "NYC",         lat: 40.7128, lon: -74.0060}
+      - {name: "Phoenix",     lat: 33.4484, lon: -112.0740}
+
+  usgs_quakes:
+    type: usgs
+    url: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson"
+    poll_interval: 120
+    min_magnitude: 2.5
+
+  # SFPD incident reports, published with a 1-3 day delay: historical
+  # collisions with coordinates, never live hazards.
+  sf_traffic_collisions:
+    type: open_data
+    url: "https://data.sfgov.org/resource/wg3w-h783.json"
+    poll_interval: 900
+    lookback_days: 7
+    timezone: "America/Los_Angeles"
+
+  # Google News RSS: unverified media signals. Not licensed for commercial
+  # redistribution of headlines.
+  news_rss:
+    type: rss
+    url: "https://news.google.com/rss/search?q=traffic+accident+OR+road+closure+OR+vehicle+collision&hl=en-US&gl=US&ceid=US:en"
+    poll_interval: 300

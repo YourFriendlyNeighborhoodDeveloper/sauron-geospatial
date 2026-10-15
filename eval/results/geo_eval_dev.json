@@ -1,0 +1,1335 @@
+{
+  "labels": "eval/geo_labels_dev.jsonl",
+  "outlet_constraint": true,
+  "baseline": {
+    "items": 157,
+    "placed": 93,
+    "wrong": 32,
+    "wrong_share_of_placed": 0.344,
+    "located_items": 117,
+    "located_correct": 54,
+    "located_correct_rate": 0.462,
+    "located_wrong": 22,
+    "located_unresolved": 41,
+    "by_scope": {
+      "non_us": {
+        "wrong": 5,
+        "correct_abstain": 3
+      },
+      "place": {
+        "correct": 54,
+        "unresolved": 41,
+        "wrong": 22
+      },
+      "state": {
+        "unresolved": 15,
+        "wrong": 5,
+        "placed_same_state": 5
+      },
+      "unknown": {
+        "abstained": 5,
+        "placed_unverifiable": 2
+      }
+    }
+  },
+  "current": {
+    "items": 157,
+    "placed": 62,
+    "wrong": 0,
+    "wrong_share_of_placed": 0.0,
+    "located_items": 117,
+    "located_correct": 62,
+    "located_correct_rate": 0.53,
+    "located_wrong": 0,
+    "located_unresolved": 55,
+    "by_scope": {
+      "non_us": {
+        "correct_abstain": 8
+      },
+      "place": {
+        "correct": 62,
+        "unresolved": 55
+      },
+      "state": {
+        "unresolved": 25
+      },
+      "unknown": {
+        "abstained": 7
+      }
+    }
+  },
+  "classification": {
+    "incident_precision": 0.993,
+    "incident_recall": 0.986,
+    "true_positive": 139,
+    "false_positive": 1,
+    "false_negative": 2,
+    "true_negative": 15,
+    "baseline_note": "the original pipeline kept every headline containing a crash keyword",
+    "baseline_incident_precision": 0.898
+  },
+  "current_confidence": {
+    "unresolved": 62,
+    "geocoded_medium": 55,
+    "geocoded_low": 33,
+    "geocoded_high": 7
+  },
+  "details": [
+    {
+      "id": "legacy-db8b8fc8a969",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-3e63c4118e92",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "York County",
+      "region": "PA"
+    },
+    {
+      "id": "legacy-dc6c643d78db",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-c60963ed6ae1",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-522253ce5ca2",
+      "baseline": "wrong",
+      "current": "correct_abstain",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-e1e1a687079b",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Tarrant County",
+      "region": "TX"
+    },
+    {
+      "id": "legacy-f4badbe18a05",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Harris",
+      "region": null
+    },
+    {
+      "id": "legacy-8cb25ee95029",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Shelby",
+      "region": null
+    },
+    {
+      "id": "legacy-9b822bcf6dfb",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Cedar",
+      "region": null
+    },
+    {
+      "id": "legacy-43ffe3466fff",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Lake",
+      "region": null
+    },
+    {
+      "id": "legacy-19a5dde27d91",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Tewksbury town",
+      "region": "MA"
+    },
+    {
+      "id": "legacy-4bc8ccbf7a4f",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Olympia",
+      "region": null
+    },
+    {
+      "id": "legacy-1503423a9698",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-7101e4fd8dbd",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-02721ef21948",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Temple",
+      "region": null
+    },
+    {
+      "id": "legacy-aceb6b8e523c",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Quincy",
+      "region": null
+    },
+    {
+      "id": "legacy-700702bb9c08",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Waldorf CDP",
+      "region": "MD"
+    },
+    {
+      "id": "legacy-00bca2a25a39",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Milford",
+      "region": null
+    },
+    {
+      "id": "legacy-39968608162a",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Lindon city",
+      "region": "UT"
+    },
+    {
+      "id": "legacy-6b57025446f8",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-395dcc6e7d7e",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Hamilton",
+      "region": null
+    },
+    {
+      "id": "legacy-5f9d9ad18b2e",
+      "baseline": "abstained",
+      "current": "abstained",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-1c01669a6774",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Sacramento city",
+      "region": "CA"
+    },
+    {
+      "id": "legacy-5d6266f8be19",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Florissant",
+      "region": null
+    },
+    {
+      "id": "legacy-e559b00bec28",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-74ae417a7082",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_high",
+      "place": "Greenville County",
+      "region": "SC"
+    },
+    {
+      "id": "legacy-1c0651552d47",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Citrus Heights city",
+      "region": "CA"
+    },
+    {
+      "id": "legacy-0a62c90600f1",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Ascension Parish",
+      "region": "LA"
+    },
+    {
+      "id": "legacy-f475a77f1a8b",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Fitchburg",
+      "region": null
+    },
+    {
+      "id": "legacy-80dee1aee5f7",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_high",
+      "place": "Mount Laurel township",
+      "region": "NJ"
+    },
+    {
+      "id": "legacy-0acd24aaa615",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Clermont County",
+      "region": "OH"
+    },
+    {
+      "id": "legacy-c483519b47e4",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Farmington",
+      "region": null
+    },
+    {
+      "id": "legacy-2d646c5bede8",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-becbcad56413",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Indiana County",
+      "region": "PA"
+    },
+    {
+      "id": "legacy-581cdf95ef5b",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-ab0fa261e37b",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Greenville County",
+      "region": "SC"
+    },
+    {
+      "id": "legacy-93bf4a0c32c0",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-5bde92a32b4e",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "DeKalb County",
+      "region": "GA"
+    },
+    {
+      "id": "legacy-2f4e5998da61",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-5eb31abe36cf",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Baltimore County",
+      "region": "MD"
+    },
+    {
+      "id": "legacy-6a63783f2f86",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Las Vegas",
+      "region": null
+    },
+    {
+      "id": "legacy-0f7f5134816a",
+      "baseline": "abstained",
+      "current": "abstained",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-22f0fb33ab7c",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-b99c8e4519cc",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-ae82fdceeba9",
+      "baseline": "wrong",
+      "current": "correct_abstain",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-f51e955992ba",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-5c9dbd7edbf7",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Elk Grove city",
+      "region": "CA"
+    },
+    {
+      "id": "legacy-0973f75a230d",
+      "baseline": "abstained",
+      "current": "abstained",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-46d64890ab20",
+      "baseline": "abstained",
+      "current": "abstained",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-13601b54a5cf",
+      "baseline": "placed_same_state",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-7ce3c05f02cb",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Hampton CDP",
+      "region": "NH"
+    },
+    {
+      "id": "legacy-2a739f5c3d52",
+      "baseline": "wrong",
+      "current": "correct_abstain",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-b4eca3fa60a5",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Santa Rosa city",
+      "region": "CA"
+    },
+    {
+      "id": "legacy-5618cc454278",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Horry County",
+      "region": "SC"
+    },
+    {
+      "id": "legacy-0fb99fb3d637",
+      "baseline": "placed_unverifiable",
+      "current": "abstained",
+      "confidence": "geocoded_low",
+      "place": "Fayette",
+      "region": null
+    },
+    {
+      "id": "legacy-933e0b9c88ef",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Brevard County",
+      "region": "FL"
+    },
+    {
+      "id": "legacy-c7525fee71f7",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Palm Springs",
+      "region": null
+    },
+    {
+      "id": "legacy-b1258a496d4a",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Orting city",
+      "region": "WA"
+    },
+    {
+      "id": "legacy-8d2da622081b",
+      "baseline": "wrong",
+      "current": "correct_abstain",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-824ae854d6dc",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-5316c8363063",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Pottawatomie County",
+      "region": "OK"
+    },
+    {
+      "id": "legacy-2b220a99952d",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-d5a7bf6d9593",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Des Moines",
+      "region": null
+    },
+    {
+      "id": "legacy-8200c4806975",
+      "baseline": "wrong",
+      "current": "correct_abstain",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-8fd7612d2998",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "York County",
+      "region": "SC"
+    },
+    {
+      "id": "legacy-da75be1c04fe",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Cincinnati",
+      "region": null
+    },
+    {
+      "id": "legacy-c238b8e18d77",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-df85b7ca5caa",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Codington County",
+      "region": "SD"
+    },
+    {
+      "id": "legacy-d27a970bd43a",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-68f02b238bba",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-ce7e9a045ccf",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Denver",
+      "region": null
+    },
+    {
+      "id": "legacy-b8efca3faa2f",
+      "baseline": "abstained",
+      "current": "abstained",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-d94b6e13d92a",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-3d6a79334b6e",
+      "baseline": "correct_abstain",
+      "current": "correct_abstain",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-f45331ba5d88",
+      "baseline": "wrong",
+      "current": "correct",
+      "confidence": "geocoded_high",
+      "place": "Topanga CDP",
+      "region": "CA"
+    },
+    {
+      "id": "legacy-5b8c51ac8613",
+      "baseline": "wrong",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "San Buenaventura (Ventura) city",
+      "region": "CA"
+    },
+    {
+      "id": "legacy-a30a774244f9",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Pima County",
+      "region": "AZ"
+    },
+    {
+      "id": "legacy-4e58fa7549a2",
+      "baseline": "placed_unverifiable",
+      "current": "abstained",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-9345ead8880a",
+      "baseline": "placed_same_state",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": "FL"
+    },
+    {
+      "id": "legacy-b9dc36f34619",
+      "baseline": "placed_same_state",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": "IL"
+    },
+    {
+      "id": "legacy-647b95916c80",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Philadelphia city",
+      "region": "PA"
+    },
+    {
+      "id": "legacy-17b6374fa15e",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Monroe",
+      "region": null
+    },
+    {
+      "id": "legacy-43a6ccedd294",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-6ed633691b12",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-25eb2575551f",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-3f2861505a7e",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Pasco County",
+      "region": "FL"
+    },
+    {
+      "id": "legacy-a1e5d9db0024",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Geneva",
+      "region": null
+    },
+    {
+      "id": "legacy-a6b9b0abd2f6",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Menomonee Falls village",
+      "region": "WI"
+    },
+    {
+      "id": "legacy-a0d459b993d0",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-44dfee59a95d",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "York County",
+      "region": "PA"
+    },
+    {
+      "id": "legacy-3306365db910",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Medford",
+      "region": null
+    },
+    {
+      "id": "legacy-dfd9602b0ae4",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Catonsville CDP",
+      "region": "MD"
+    },
+    {
+      "id": "legacy-8865840d0f69",
+      "baseline": "wrong",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Newark city",
+      "region": "DE"
+    },
+    {
+      "id": "legacy-1398ed8ffa93",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Hinton",
+      "region": null
+    },
+    {
+      "id": "legacy-4ccb1fd4edda",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Shelby",
+      "region": null
+    },
+    {
+      "id": "legacy-a9b96afd9ac1",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Westbrook",
+      "region": null
+    },
+    {
+      "id": "legacy-30d9dd1264ec",
+      "baseline": "wrong",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Jefferson County",
+      "region": "AL"
+    },
+    {
+      "id": "legacy-70592f2a116c",
+      "baseline": "placed_same_state",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": "GA"
+    },
+    {
+      "id": "legacy-11b04fbe6cfa",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-a6b9b0abd2f6",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Menomonee Falls village",
+      "region": "WI"
+    },
+    {
+      "id": "legacy-94f0b162183d",
+      "baseline": "wrong",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Madison County",
+      "region": "AL"
+    },
+    {
+      "id": "legacy-1eceb34ad8bc",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Bridgewater",
+      "region": null
+    },
+    {
+      "id": "legacy-c87a14bfa483",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Madison city",
+      "region": "WI"
+    },
+    {
+      "id": "legacy-843798e0d11a",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "York County",
+      "region": "PA"
+    },
+    {
+      "id": "legacy-1ac5893332ec",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Flat Rock",
+      "region": null
+    },
+    {
+      "id": "legacy-a27f3f323658",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-4b8d27578971",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "York",
+      "region": null
+    },
+    {
+      "id": "legacy-312f3e7f6bf4",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Rockford city",
+      "region": "IL"
+    },
+    {
+      "id": "legacy-c374f8906d09",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Napa County",
+      "region": "CA"
+    },
+    {
+      "id": "legacy-2a3a14b6b807",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Jefferson",
+      "region": null
+    },
+    {
+      "id": "legacy-8d1d8c9fc795",
+      "baseline": "correct_abstain",
+      "current": "correct_abstain",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-80dee1aee5f7",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_high",
+      "place": "Mount Laurel township",
+      "region": "NJ"
+    },
+    {
+      "id": "legacy-332cb918c4e6",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-09a329a00360",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Mobile County",
+      "region": "AL"
+    },
+    {
+      "id": "legacy-b11a7dae3d48",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Douglas County",
+      "region": "GA"
+    },
+    {
+      "id": "legacy-950ec79c93c3",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Jacksboro city",
+      "region": "TX"
+    },
+    {
+      "id": "legacy-0f48b69fd927",
+      "baseline": "wrong",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Milford city",
+      "region": "DE"
+    },
+    {
+      "id": "legacy-27716f58b5e7",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-55d610409af6",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Tulare County",
+      "region": "CA"
+    },
+    {
+      "id": "legacy-a99c9c6b4d8d",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-71043cddf77d",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Southington town",
+      "region": "CT"
+    },
+    {
+      "id": "legacy-5e7138d2e455",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-ffebb401f1e6",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Phoenix city",
+      "region": "AZ"
+    },
+    {
+      "id": "legacy-4f4c6fbde132",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-980965a662da",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Jackson",
+      "region": null
+    },
+    {
+      "id": "legacy-b51680443e0f",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Macon",
+      "region": null
+    },
+    {
+      "id": "legacy-09603f8ae31b",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-5e74beb95c50",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-492d85e54a50",
+      "baseline": "correct_abstain",
+      "current": "correct_abstain",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-ed0baead3fe5",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-53cf6a4c792a",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Screven County",
+      "region": "GA"
+    },
+    {
+      "id": "legacy-8128741f73a8",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Haycock township",
+      "region": "PA"
+    },
+    {
+      "id": "legacy-57eb2c39f268",
+      "baseline": "wrong",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Hollywood city",
+      "region": "FL"
+    },
+    {
+      "id": "legacy-5177e8d0ec28",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Munster",
+      "region": null
+    },
+    {
+      "id": "legacy-44b46b1e043c",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "York County",
+      "region": "PA"
+    },
+    {
+      "id": "legacy-aaf2315d0a7e",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-dc371070e149",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Morgantown",
+      "region": null
+    },
+    {
+      "id": "legacy-6636f316705f",
+      "baseline": "wrong",
+      "current": "correct",
+      "confidence": "geocoded_high",
+      "place": "Redlands city",
+      "region": "CA"
+    },
+    {
+      "id": "legacy-2df9320a3bf2",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-8d643047b6ae",
+      "baseline": "wrong",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Lee County",
+      "region": "GA"
+    },
+    {
+      "id": "legacy-d7c695295202",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-264f697b8105",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Boca Raton city",
+      "region": "FL"
+    },
+    {
+      "id": "legacy-bc61fb672e33",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-046d3f127e3e",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Luzerne County",
+      "region": "PA"
+    },
+    {
+      "id": "legacy-2736c9c713e7",
+      "baseline": "wrong",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Alta CDP",
+      "region": "CA"
+    },
+    {
+      "id": "legacy-55bfd1a967bd",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-3e3bd79b2259",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-4746634247ff",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_high",
+      "place": "Grimes County",
+      "region": "TX"
+    },
+    {
+      "id": "legacy-e3f4612e1481",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_high",
+      "place": "Burlington County",
+      "region": "NJ"
+    },
+    {
+      "id": "legacy-5f75f3322a4d",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Leander city",
+      "region": "TX"
+    },
+    {
+      "id": "legacy-d08b36917f5e",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-c1cb417361bf",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-d85b188dad0a",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Santa Barbara city",
+      "region": "CA"
+    },
+    {
+      "id": "legacy-7d7c6512c701",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-4815c7341285",
+      "baseline": "placed_same_state",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-9b6fb8fb9cec",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Fayette",
+      "region": null
+    },
+    {
+      "id": "legacy-37f38ea1c418",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Scottsdale city",
+      "region": "AZ"
+    }
+  ]
+}

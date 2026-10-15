@@ -1,0 +1,703 @@
+{
+  "labels": "eval/geo_labels_holdout.jsonl",
+  "outlet_constraint": true,
+  "baseline": {
+    "items": 78,
+    "placed": 47,
+    "wrong": 23,
+    "wrong_share_of_placed": 0.489,
+    "located_items": 58,
+    "located_correct": 19,
+    "located_correct_rate": 0.328,
+    "located_wrong": 20,
+    "located_unresolved": 19,
+    "by_scope": {
+      "non_us": {
+        "correct_abstain": 3
+      },
+      "place": {
+        "wrong": 20,
+        "unresolved": 19,
+        "correct": 19
+      },
+      "state": {
+        "unresolved": 6,
+        "wrong": 3,
+        "placed_same_state": 3
+      },
+      "unknown": {
+        "abstained": 3,
+        "placed_unverifiable": 2
+      }
+    }
+  },
+  "current": {
+    "items": 78,
+    "placed": 23,
+    "wrong": 1,
+    "wrong_share_of_placed": 0.043,
+    "located_items": 58,
+    "located_correct": 22,
+    "located_correct_rate": 0.379,
+    "located_wrong": 1,
+    "located_unresolved": 35,
+    "by_scope": {
+      "non_us": {
+        "correct_abstain": 3
+      },
+      "place": {
+        "wrong": 1,
+        "unresolved": 35,
+        "correct": 22
+      },
+      "state": {
+        "unresolved": 12
+      },
+      "unknown": {
+        "abstained": 5
+      }
+    }
+  },
+  "classification": {
+    "incident_precision": 0.947,
+    "incident_recall": 1.0,
+    "true_positive": 71,
+    "false_positive": 4,
+    "false_negative": 0,
+    "true_negative": 3,
+    "baseline_note": "the original pipeline kept every headline containing a crash keyword",
+    "baseline_incident_precision": 0.91
+  },
+  "current_confidence": {
+    "geocoded_high": 1,
+    "unresolved": 44,
+    "geocoded_low": 11,
+    "geocoded_medium": 22
+  },
+  "details": [
+    {
+      "id": "legacy-35a1c3d6ca57",
+      "baseline": "wrong",
+      "current": "wrong",
+      "confidence": "geocoded_high",
+      "place": "San Bernardino County",
+      "region": "CA"
+    },
+    {
+      "id": "legacy-6b9fc350eb3e",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-d902ddc90879",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Green",
+      "region": null
+    },
+    {
+      "id": "legacy-05bb15554a95",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Tampa",
+      "region": null
+    },
+    {
+      "id": "legacy-c02fac07a9c3",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-85b426a50273",
+      "baseline": "wrong",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Minot town",
+      "region": "ME"
+    },
+    {
+      "id": "legacy-567b2a794e47",
+      "baseline": "wrong",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Prospect town",
+      "region": "CT"
+    },
+    {
+      "id": "legacy-0911b358e285",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-29a138930293",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-617449ff4e86",
+      "baseline": "abstained",
+      "current": "abstained",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-91f42c98e638",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Las Vegas city",
+      "region": "NV"
+    },
+    {
+      "id": "legacy-62cca333c597",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Houston city",
+      "region": "TX"
+    },
+    {
+      "id": "legacy-a3f03c7864ec",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-c80c94c8837c",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-795009811f97",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-55eaa75b3a81",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-347490a0d004",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-857a214c5e01",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-fb3f94e92cd9",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-b85c04b04405",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Oakland County",
+      "region": "MI"
+    },
+    {
+      "id": "legacy-0e9818147dac",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-82c836f5c189",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Greensville County",
+      "region": "VA"
+    },
+    {
+      "id": "legacy-7710100cf551",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Polk",
+      "region": null
+    },
+    {
+      "id": "legacy-a50681d9d88e",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-29f34a3b898e",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Sarasota city",
+      "region": "FL"
+    },
+    {
+      "id": "legacy-68b433dcce63",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-e5431a46d966",
+      "baseline": "wrong",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Victorville city",
+      "region": "CA"
+    },
+    {
+      "id": "legacy-2261f55ff17a",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-f5b70e834b52",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-45e338488ae4",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-449847d44cbc",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Beaverton",
+      "region": null
+    },
+    {
+      "id": "legacy-609cf1e94ed4",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-8ccf28f1ccd0",
+      "baseline": "placed_same_state",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": "CA"
+    },
+    {
+      "id": "legacy-59e190fc3259",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-7f840e202003",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "San Jose city",
+      "region": "CA"
+    },
+    {
+      "id": "legacy-0661e83de70f",
+      "baseline": "placed_same_state",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-8b05c2cb1dcc",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Centerville city",
+      "region": "UT"
+    },
+    {
+      "id": "legacy-fffdafa9110c",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-59a343e9ade7",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Somonauk village",
+      "region": "IL"
+    },
+    {
+      "id": "legacy-cba196111df1",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-7ba12cdc711b",
+      "baseline": "correct_abstain",
+      "current": "correct_abstain",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-19c57067cc95",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": "CA"
+    },
+    {
+      "id": "legacy-07f447541c74",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Fresno County",
+      "region": "CA"
+    },
+    {
+      "id": "legacy-38ad5ccb07f6",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-61675588d92d",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Texas",
+      "region": null
+    },
+    {
+      "id": "legacy-d21d052425aa",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-15a811fdf9bd",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Santa Barbara city",
+      "region": "CA"
+    },
+    {
+      "id": "legacy-982cbfbf5415",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-70a33e547d89",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Columbus",
+      "region": null
+    },
+    {
+      "id": "legacy-c0ab583d0746",
+      "baseline": "placed_same_state",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-2e056bd32d9e",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-a2a8bd013ca5",
+      "baseline": "abstained",
+      "current": "abstained",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-f1381be1c2cb",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Lexington County",
+      "region": "SC"
+    },
+    {
+      "id": "legacy-d0d77a8fa5a6",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Romeoville village",
+      "region": "IL"
+    },
+    {
+      "id": "legacy-cb9ea1563c6b",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-ab52584adfa2",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Kings County",
+      "region": "CA"
+    },
+    {
+      "id": "legacy-a3e23416f688",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-642e36a99bb4",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Jefferson",
+      "region": null
+    },
+    {
+      "id": "legacy-6605aa98cbb1",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-c0d4cc264cd0",
+      "baseline": "correct_abstain",
+      "current": "correct_abstain",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-98c1af3042e9",
+      "baseline": "abstained",
+      "current": "abstained",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-e3effc9200c1",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-74f2f481a0e5",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Denver",
+      "region": null
+    },
+    {
+      "id": "legacy-468912c4ead4",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Red Bluff city",
+      "region": "CA"
+    },
+    {
+      "id": "legacy-5061a7734c22",
+      "baseline": "unresolved",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Houston city",
+      "region": "TX"
+    },
+    {
+      "id": "legacy-3385bce12f12",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Calabash town",
+      "region": "NC"
+    },
+    {
+      "id": "legacy-4d1d6aac203d",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Nemaha County",
+      "region": "KS"
+    },
+    {
+      "id": "legacy-62cbde05aa16",
+      "baseline": "placed_unverifiable",
+      "current": "abstained",
+      "confidence": "geocoded_low",
+      "place": "Millcreek",
+      "region": null
+    },
+    {
+      "id": "legacy-e6042d2412a8",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-1dfb4e5f8d9f",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-cba7126f67a5",
+      "baseline": "wrong",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Rochester",
+      "region": null
+    },
+    {
+      "id": "legacy-4ff7de5a87d3",
+      "baseline": "wrong",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Houston city",
+      "region": "TX"
+    },
+    {
+      "id": "legacy-18b538c8986d",
+      "baseline": "placed_unverifiable",
+      "current": "abstained",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-a571f9c0a9f7",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "geocoded_low",
+      "place": "Sacramento",
+      "region": null
+    },
+    {
+      "id": "legacy-d2fc3a50216d",
+      "baseline": "unresolved",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-21088796f3c3",
+      "baseline": "correct",
+      "current": "unresolved",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    },
+    {
+      "id": "legacy-c7307e495245",
+      "baseline": "correct",
+      "current": "correct",
+      "confidence": "geocoded_medium",
+      "place": "Mesa city",
+      "region": "AZ"
+    },
+    {
+      "id": "legacy-1d5c016cdc19",
+      "baseline": "correct_abstain",
+      "current": "correct_abstain",
+      "confidence": "unresolved",
+      "place": null,
+      "region": null
+    }
+  ]
+}

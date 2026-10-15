@@ -1,0 +1,582 @@
+{
+ "@context": [
+  "https://geojson.org/geojson-ld/geojson-context.jsonld",
+  {
+   "@version": "1.1",
+   "wx": "https://api.weather.gov/ontology#",
+   "@vocab": "https://api.weather.gov/ontology#"
+  }
+ ],
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.03ba37465ca80de8c05dddfdecfc26ba4e48de51.001.1",
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -102.17,
+       32.11
+      ],
+      [
+       -101.92,
+       32.48
+      ],
+      [
+       -101.74,
+       32.37
+      ],
+      [
+       -101.75,
+       32.09
+      ],
+      [
+       -101.78,
+       32.09
+      ],
+      [
+       -101.78,
+       32.07
+      ],
+      [
+       -101.98,
+       32.03
+      ],
+      [
+       -102.04,
+       32.08
+      ],
+      [
+       -102.17,
+       32.11
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.03ba37465ca80de8c05dddfdecfc26ba4e48de51.001.1",
+    "@type": "wx:Alert",
+    "id": "urn:oid:2.49.0.1.840.0.03ba37465ca80de8c05dddfdecfc26ba4e48de51.001.1",
+    "areaDesc": "Martin, TX; Midland, TX",
+    "geocode": {
+     "SAME": [
+      "048317",
+      "048329"
+     ],
+     "UGC": [
+      "TXC317",
+      "TXC329"
+     ]
+    },
+    "affectedZones": [
+     "https://api.weather.gov/zones/county/TXC317",
+     "https://api.weather.gov/zones/county/TXC329"
+    ],
+    "references": [
+     {
+      "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a8a0f4fe297d7a85b5589744716fc5826a44c82a.001.1",
+      "identifier": "urn:oid:2.49.0.1.840.0.a8a0f4fe297d7a85b5589744716fc5826a44c82a.001.1",
+      "sender": "w-nws.webmaster@noaa.gov",
+      "sent": "2026-10-15T11:26:00-05:00"
+     }
+    ],
+    "sent": "2026-10-15T11:50:00-05:00",
+    "effective": "2026-10-15T11:50:00-05:00",
+    "onset": "2026-10-15T11:50:00-05:00",
+    "expires": "2026-10-15T13:30:00-05:00",
+    "ends": "2026-10-15T13:30:00-05:00",
+    "status": "Actual",
+    "messageType": "Update",
+    "category": "Met",
+    "severity": "Severe",
+    "certainty": "Likely",
+    "urgency": "Immediate",
+    "event": "Flash Flood Warning",
+    "sender": "w-nws.webmaster@noaa.gov",
+    "senderName": "NWS Midland/Odessa TX",
+    "headline": "Flash Flood Warning issued October 15 at 11:50AM CDT until October 15 at 1:30PM CDT by NWS Midland/Odessa TX",
+    "description": "At 1150 AM CDT, Doppler radar indicated thunderstorms producing heavy\nrain across the warned area. Between 1.5 and 2.5 inches of rain have\nfallen. The expected rainfall rate is 1 to 2 inches in 1 hour. Flash\nflooding is ongoing or expected to begin shortly.\n\nHAZARD...Life threatening flash flooding. Thunderstorms producing\nflash flooding.\n\nSOURCE...Radar indicated.\n\nIMPACT...Life threatening flash flooding of creeks and streams, urban\nareas, highways, streets and underpasses.\n\nSome locations that will experience flash flooding include...\nStanton, Lenorah, Courtney, Tarzan and Stanton Municipal Aiport.\n\nThis includes the following streams and drainages...\nSulphur Springs Draw, Calf Creek, Mustang Draw and Midland Draw.",
+    "instruction": "Turn around, don't drown when encountering flooded roads. Most flood\ndeaths occur in vehicles.\n\nPlease report observed flooding to local emergency services or law\nenforcement and request they pass this information to the National\nWeather Service when you can do so safely.",
+    "response": "Avoid",
+    "note": null,
+    "parameters": {
+     "AWIPSidentifier": [
+      "FFSMAF"
+     ],
+     "WMOidentifier": [
+      "WGUS74 KMAF 151650"
+     ],
+     "NWSheadline": [
+      "FLASH FLOOD WARNING REMAINS IN EFFECT UNTIL 130 PM CDT THIS AFTERNOON FOR SOUTHEASTERN MARTIN AND NORTHEASTERN MIDLAND COUNTIES"
+     ],
+     "flashFloodDetection": [
+      "RADAR INDICATED"
+     ],
+     "flashFloodDamageThreat": [
+      "CONSIDERABLE"
+     ],
+     "BLOCKCHANNEL": [
+      "EAS",
+      "NWEM",
+      "CMAS"
+     ],
+     "EAS-ORG": [
+      "WXR"
+     ],
+     "VTEC": [
+      "/O.CON.KMAF.FF.W.0240.000000T0000Z-261015T1830Z/"
+     ],
+     "eventEndingTime": [
+      "2026-10-15T13:30:00-05:00"
+     ]
+    },
+    "scope": "Public",
+    "code": "IPAWSv1.0",
+    "language": "en-US",
+    "web": "http://www.weather.gov",
+    "eventCode": {
+     "SAME": [
+      "FFS"
+     ],
+     "NationalWeatherService": [
+      "FFW"
+     ]
+    }
+   }
+  },
+  {
+   "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.53eb0b79cd3e3fda2b63ba1dc27f575850469736.001.1",
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -100,
+       33.84
+      ],
+      [
+       -99.75,
+       33.84
+      ],
+      [
+       -99.76,
+       33.61
+      ],
+      [
+       -99.82,
+       33.49
+      ],
+      [
+       -99.99,
+       33.4
+      ],
+      [
+       -100,
+       33.84
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.53eb0b79cd3e3fda2b63ba1dc27f575850469736.001.1",
+    "@type": "wx:Alert",
+    "id": "urn:oid:2.49.0.1.840.0.53eb0b79cd3e3fda2b63ba1dc27f575850469736.001.1",
+    "areaDesc": "Foard, TX; Knox, TX",
+    "geocode": {
+     "SAME": [
+      "048155",
+      "048275"
+     ],
+     "UGC": [
+      "TXC155",
+      "TXC275"
+     ]
+    },
+    "affectedZones": [
+     "https://api.weather.gov/zones/county/TXC155",
+     "https://api.weather.gov/zones/county/TXC275"
+    ],
+    "references": [],
+    "sent": "2026-10-15T11:52:00-05:00",
+    "effective": "2026-10-15T11:52:00-05:00",
+    "onset": "2026-10-15T11:52:00-05:00",
+    "expires": "2026-10-15T14:45:00-05:00",
+    "ends": "2026-10-15T14:45:00-05:00",
+    "status": "Actual",
+    "messageType": "Alert",
+    "category": "Met",
+    "severity": "Minor",
+    "certainty": "Likely",
+    "urgency": "Expected",
+    "event": "Flood Advisory",
+    "sender": "w-nws.webmaster@noaa.gov",
+    "senderName": "NWS Norman OK",
+    "headline": "Flood Advisory issued October 15 at 11:52AM CDT until October 15 at 2:45PM CDT by NWS Norman OK",
+    "description": "* WHAT...Flooding caused by excessive rainfall is expected.\n\n* WHERE...Southwestern Foard County in northern Texas...\nWestern Knox County in northern Texas...\n\n* WHEN...Until 245 PM CDT.\n\n* IMPACTS...Minor flooding in low-lying and poor drainage areas.\n\n* ADDITIONAL DETAILS...\n- At 1152 AM CDT, Doppler radar indicated heavy rain due to\nthunderstorms. Minor flooding is ongoing or expected to begin\nshortly in the advisory area. Between 1 and 2 inches of rain have\nfallen.\n- Additional rainfall amounts up to 1 inch are expected over the\narea. This additional rain will result in minor flooding.\n- Some locations that will experience flooding include...\nBenjamin and Truscott.\n- http://www.weather.gov/safety/flood",
+    "instruction": "Turn around, don't drown when encountering flooded roads. Most flood\ndeaths occur in vehicles.",
+    "response": "Avoid",
+    "note": null,
+    "parameters": {
+     "AWIPSidentifier": [
+      "FLSOUN"
+     ],
+     "WMOidentifier": [
+      "WGUS84 KOUN 151652"
+     ],
+     "NWSheadline": [
+      "FLOOD ADVISORY IN EFFECT UNTIL 245 PM CDT THIS AFTERNOON"
+     ],
+     "BLOCKCHANNEL": [
+      "EAS",
+      "NWEM",
+      "CMAS"
+     ],
+     "VTEC": [
+      "/O.NEW.KOUN.FA.Y.0313.261015T1652Z-261015T1945Z/"
+     ],
+     "eventEndingTime": [
+      "2026-10-15T14:45:00-05:00"
+     ]
+    },
+    "scope": "Public",
+    "code": "IPAWSv1.0",
+    "language": "en-US",
+    "web": "http://www.weather.gov",
+    "eventCode": {
+     "SAME": [
+      "NWS"
+     ],
+     "NationalWeatherService": [
+      "FAY"
+     ]
+    }
+   }
+  },
+  {
+   "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3546cff8987ef1855727b74989d5223d2d07d7d5.002.1",
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3546cff8987ef1855727b74989d5223d2d07d7d5.002.1",
+    "@type": "wx:Alert",
+    "id": "urn:oid:2.49.0.1.840.0.3546cff8987ef1855727b74989d5223d2d07d7d5.002.1",
+    "areaDesc": "Eddy County Plains",
+    "geocode": {
+     "SAME": [
+      "035015"
+     ],
+     "UGC": [
+      "NMZ028"
+     ]
+    },
+    "affectedZones": [
+     "https://api.weather.gov/zones/forecast/NMZ028"
+    ],
+    "references": [],
+    "sent": "2026-10-15T11:03:00-06:00",
+    "effective": "2026-10-15T11:03:00-06:00",
+    "onset": "2026-10-15T19:00:00-06:00",
+    "expires": "2026-10-16T18:00:00-06:00",
+    "ends": "2026-10-16T18:00:00-06:00",
+    "status": "Actual",
+    "messageType": "Alert",
+    "category": "Met",
+    "severity": "Moderate",
+    "certainty": "Likely",
+    "urgency": "Expected",
+    "event": "Wind Advisory",
+    "sender": "w-nws.webmaster@noaa.gov",
+    "senderName": "NWS Midland/Odessa TX",
+    "headline": "Wind Advisory issued October 15 at 11:03AM MDT until October 16 at 6:00PM MDT by NWS Midland/Odessa TX",
+    "description": "* WHAT...North winds 25 to 35 mph with gusts up to 55 mph expected.\n\n* WHERE...Eddy County Plains.\n\n* WHEN...From 7 PM this evening to 6 PM MDT Friday.\n\n* IMPACTS...Gusty winds may blow around unsecured objects.",
+    "instruction": "Winds this strong can make driving difficult, especially for high\nprofile vehicles. Use extra caution and keep both hands on the\nsteering wheel.\n\nSecure loose objects that could be damaged or blown away by strong\nwinds.",
+    "response": "Execute",
+    "note": null,
+    "parameters": {
+     "AWIPSidentifier": [
+      "NPWMAF"
+     ],
+     "WMOidentifier": [
+      "WWUS74 KMAF 151703"
+     ],
+     "NWSheadline": [
+      "WIND ADVISORY IN EFFECT FROM 7 PM THIS EVENING TO 6 PM MDT FRIDAY"
+     ],
+     "BLOCKCHANNEL": [
+      "EAS",
+      "NWEM",
+      "CMAS"
+     ],
+     "VTEC": [
+      "/O.EXA.KMAF.WI.Y.0016.261016T0100Z-261017T0000Z/"
+     ],
+     "eventEndingTime": [
+      "2026-10-16T18:00:00-06:00"
+     ]
+    },
+    "scope": "Public",
+    "code": "IPAWSv1.0",
+    "language": "en-US",
+    "web": "http://www.weather.gov",
+    "eventCode": {
+     "SAME": [
+      "NWS"
+     ],
+     "NationalWeatherService": [
+      "WIY"
+     ]
+    }
+   }
+  },
+  {
+   "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a23dc72a25a855176d98cba2f53f801aa8dd54de.001.1",
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a23dc72a25a855176d98cba2f53f801aa8dd54de.001.1",
+    "@type": "wx:Alert",
+    "id": "urn:oid:2.49.0.1.840.0.a23dc72a25a855176d98cba2f53f801aa8dd54de.001.1",
+    "areaDesc": "Gregory; Brule; Charles Mix",
+    "geocode": {
+     "SAME": [
+      "046053",
+      "046015",
+      "046023"
+     ],
+     "UGC": [
+      "SDZ050",
+      "SDZ057",
+      "SDZ063"
+     ]
+    },
+    "affectedZones": [
+     "https://api.weather.gov/zones/forecast/SDZ050",
+     "https://api.weather.gov/zones/forecast/SDZ057",
+     "https://api.weather.gov/zones/forecast/SDZ063"
+    ],
+    "references": [
+     {
+      "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.c16746022b9cfb0e06f862c9d01457e18216c2d3.001.1",
+      "identifier": "urn:oid:2.49.0.1.840.0.c16746022b9cfb0e06f862c9d01457e18216c2d3.001.1",
+      "sender": "w-nws.webmaster@noaa.gov",
+      "sent": "2026-10-15T01:29:00-05:00"
+     }
+    ],
+    "sent": "2026-10-15T11:03:00-05:00",
+    "effective": "2026-10-15T11:03:00-05:00",
+    "onset": "2026-10-15T15:00:00-05:00",
+    "expires": "2026-10-15T17:30:00-05:00",
+    "ends": "2026-10-16T04:00:00-05:00",
+    "status": "Actual",
+    "messageType": "Update",
+    "category": "Met",
+    "severity": "Moderate",
+    "certainty": "Likely",
+    "urgency": "Expected",
+    "event": "Wind Advisory",
+    "sender": "w-nws.webmaster@noaa.gov",
+    "senderName": "NWS Sioux Falls SD",
+    "headline": "Wind Advisory issued October 15 at 11:03AM CDT until October 16 at 4:00AM CDT by NWS Sioux Falls SD",
+    "description": "* WHAT...Northwest winds 25 to 30 mph with gusts up to 50 mph\nexpected.\n\n* WHERE...Brule, Charles Mix, and Gregory Counties.\n\n* WHEN...From 3 PM this afternoon to 4 AM CDT Friday.\n\n* IMPACTS...Gusty winds will blow around unsecured objects. Tree\nlimbs could be blown down and a few power outages may result.",
+    "instruction": "Winds this strong can make driving difficult, especially for high\nprofile vehicles. Use extra caution.",
+    "response": "Execute",
+    "note": null,
+    "parameters": {
+     "AWIPSidentifier": [
+      "NPWFSD"
+     ],
+     "WMOidentifier": [
+      "WWUS73 KFSD 151603"
+     ],
+     "NWSheadline": [
+      "WIND ADVISORY REMAINS IN EFFECT FROM 3 PM THIS AFTERNOON TO 4 AM CDT FRIDAY"
+     ],
+     "BLOCKCHANNEL": [
+      "EAS",
+      "NWEM",
+      "CMAS"
+     ],
+     "VTEC": [
+      "/O.CON.KFSD.WI.Y.0008.261015T2000Z-261016T0900Z/"
+     ],
+     "eventEndingTime": [
+      "2026-10-16T04:00:00-05:00"
+     ],
+     "expiredReferences": [
+      "w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.49d6b061361c4cb3fa0c78ee620a12fb596ee0af.001.1,2026-10-14T21:17:00-05:00"
+     ]
+    },
+    "scope": "Public",
+    "code": "IPAWSv1.0",
+    "language": "en-US",
+    "web": "http://www.weather.gov",
+    "eventCode": {
+     "SAME": [
+      "NWS"
+     ],
+     "NationalWeatherService": [
+      "WIY"
+     ]
+    }
+   }
+  },
+  {
+   "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.598497230c29b593aa00bec84b3a6737bbdda734.001.1",
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.598497230c29b593aa00bec84b3a6737bbdda734.001.1",
+    "@type": "wx:Alert",
+    "id": "urn:oid:2.49.0.1.840.0.598497230c29b593aa00bec84b3a6737bbdda734.001.1",
+    "areaDesc": "Eastern Juab/Millard Counties; Sanpete Valley; Sevier Valley",
+    "geocode": {
+     "SAME": [
+      "049023",
+      "049027",
+      "049039",
+      "049041"
+     ],
+     "UGC": [
+      "UTZ116",
+      "UTZ118",
+      "UTZ119"
+     ]
+    },
+    "affectedZones": [
+     "https://api.weather.gov/zones/forecast/UTZ116",
+     "https://api.weather.gov/zones/forecast/UTZ118",
+     "https://api.weather.gov/zones/forecast/UTZ119"
+    ],
+    "references": [],
+    "sent": "2026-10-15T11:09:00-06:00",
+    "effective": "2026-10-15T11:09:00-06:00",
+    "onset": "2026-10-15T21:00:00-06:00",
+    "expires": "2026-10-16T02:15:00-06:00",
+    "ends": "2026-10-16T09:00:00-06:00",
+    "status": "Actual",
+    "messageType": "Alert",
+    "category": "Met",
+    "severity": "Severe",
+    "certainty": "Likely",
+    "urgency": "Expected",
+    "event": "Freeze Warning",
+    "sender": "w-nws.webmaster@noaa.gov",
+    "senderName": "NWS Salt Lake City UT",
+    "headline": "Freeze Warning issued October 15 at 11:09AM MDT until October 16 at 9:00AM MDT by NWS Salt Lake City UT",
+    "description": "* WHAT...Sub-freezing temperatures as low as 31 expected.\n\n* WHERE...Eastern Juab/Millard Counties, Sanpete Valley, and Sevier\nValley.\n\n* WHEN...From 9 PM this evening to 9 AM MDT Friday.\n\n* IMPACTS...Frost and freeze conditions could kill crops, other\nsensitive vegetation and possibly damage unprotected outdoor\nplumbing.",
+    "instruction": "Take steps now to protect tender plants from the cold.\n\nDrain in-ground sprinkler systems and cover above ground pipes.",
+    "response": "Execute",
+    "note": null,
+    "parameters": {
+     "AWIPSidentifier": [
+      "NPWSLC"
+     ],
+     "WMOidentifier": [
+      "WWUS75 KSLC 151709"
+     ],
+     "NWSheadline": [
+      "FREEZE WARNING IN EFFECT FROM 9 PM THIS EVENING TO 9 AM MDT FRIDAY"
+     ],
+     "BLOCKCHANNEL": [
+      "EAS",
+      "NWEM",
+      "CMAS"
+     ],
+     "VTEC": [
+      "/O.NEW.KSLC.FZ.W.0022.261016T0300Z-261016T1500Z/"
+     ],
+     "eventEndingTime": [
+      "2026-10-16T09:00:00-06:00"
+     ]
+    },
+    "scope": "Public",
+    "code": "IPAWSv1.0",
+    "language": "en-US",
+    "web": "http://www.weather.gov",
+    "eventCode": {
+     "SAME": [
+      "NWS"
+     ],
+     "NationalWeatherService": [
+      "FZW"
+     ]
+    }
+   }
+  },
+  {
+   "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3505da15ccb2df9026983e9db9a09f5310893b2e.001.1",
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3505da15ccb2df9026983e9db9a09f5310893b2e.001.1",
+    "@type": "wx:Alert",
+    "id": "urn:oid:2.49.0.1.840.0.3505da15ccb2df9026983e9db9a09f5310893b2e.001.1",
+    "areaDesc": "Cochise, AZ",
+    "geocode": {
+     "SAME": [
+      "004003"
+     ],
+     "UGC": [
+      "AZC003"
+     ]
+    },
+    "affectedZones": [
+     "https://api.weather.gov/zones/county/AZC003"
+    ],
+    "references": [],
+    "sent": "2026-10-15T09:47:00-07:00",
+    "effective": "2026-10-15T09:47:00-07:00",
+    "onset": "2026-10-15T09:47:00-07:00",
+    "expires": "2026-10-16T21:00:00-07:00",
+    "ends": null,
+    "status": "Actual",
+    "messageType": "Alert",
+    "category": "Met",
+    "severity": "Unknown",
+    "certainty": "Unknown",
+    "urgency": "Unknown",
+    "event": "Air Quality Alert",
+    "sender": "w-nws.webmaster@noaa.gov",
+    "senderName": "NWS Tucson AZ",
+    "headline": "Air Quality Alert issued October 15 at 9:47AM MST by NWS Tucson AZ",
+    "description": "AQATWC\n\nThe Arizona Department of Environmental Quality (ADEQ) has issued a\nPM-10 High Pollution Advisory for Douglas on Friday.\n\nAn episode of strong and gusty winds is forecast to generate\nwidespread blowing dust that may result in local PM-10 concentrations\nthat pose a health risk. Adverse health effects increase as air\nquality deteriorates.\n\nCoarse particulate matter - also known as PM-10 - is an air\ncontaminant that can aggravate heart and lung disease conditions,\nespecially in older adults, children, and those with asthma. A\ndecrease in physical activity is recommended.\n\nConsolidate your travel, stabilize loose soils, slow down or avoid\ntravel on dirt roads, reduce or eliminate fireplace use, and avoid\nusing gas-powered lawn equipment.\n\nFor details on this High Pollution Advisory,\nvisit the ADEQ internet site at www.azdeq.gov/forecast/douglas or\ncall 602-771-2300.",
+    "instruction": null,
+    "response": "Monitor",
+    "note": "Non-Weather Emergency Message. Not sent to IPAWS.",
+    "parameters": {
+     "AWIPSidentifier": [
+      "AQATWC"
+     ],
+     "WMOidentifier": [
+      "AEUS75 KTWC 151647"
+     ],
+     "NWSheadline": [
+      "PM-10 HIGH POLLUTION ADVISORY FOR COCHISE COUNTY INCLUDING DOUGLAS ON FRIDAY"
+     ],
+     "BLOCKCHANNEL": [
+      "EAS",
+      "NWEM",
+      "CMAS"
+     ]
+    },
+    "scope": "Public",
+    "code": "IPAWSv1.0",
+    "language": "en-US",
+    "web": "http://www.weather.gov",
+    "eventCode": {
+     "SAME": [
+      "NWS"
+     ],
+     "NationalWeatherService": [
+      "AQA"
+     ]
+    }
+   }
+  }
+ ],
+ "title": "Current watches, warnings, and advisories for United States land zones",
+ "updated": "2026-10-15T17:10:15+00:00"
+}

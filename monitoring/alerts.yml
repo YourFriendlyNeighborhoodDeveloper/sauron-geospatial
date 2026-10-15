@@ -1,0 +1,35 @@
+groups:
+  - name: sauron
+    rules:
+      # A quiet source is normal; alert on missing successful polls, not on zero events.
+      - alert: FeedStale
+        expr: time() - sauron_feed_last_success_timestamp_seconds > 900
+        for: 5m
+        labels: {severity: warning}
+        annotations:
+          summary: "Feed {{ $labels.feed }} has not polled successfully for 15 minutes"
+
+      - alert: FeedFailing
+        expr: increase(sauron_feed_polls_total{outcome="error"}[15m]) >= 3 and increase(sauron_feed_polls_total{outcome="success"}[15m]) == 0
+        labels: {severity: warning}
+        annotations:
+          summary: "Every poll of {{ $labels.feed }} failed in the last 15 minutes"
+
+      - alert: ConsumerLagging
+        expr: sauron_consumer_lag_messages > 1000
+        for: 10m
+        labels: {severity: warning}
+        annotations:
+          summary: "Processor is more than 1000 messages behind the raw topic"
+
+      - alert: DeadLetters
+        expr: increase(sauron_dead_letters_total[1h]) > 10
+        labels: {severity: info}
+        annotations:
+          summary: "More than 10 messages from {{ $labels.source }} were dead-lettered in the last hour"
+
+      - alert: RawPublishErrors
+        expr: increase(sauron_raw_publish_errors_total[10m]) > 0
+        labels: {severity: warning}
+        annotations:
+          summary: "The broker rejected raw events from {{ $labels.feed }}"

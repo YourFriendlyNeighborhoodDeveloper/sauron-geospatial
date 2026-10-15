@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel><title>test</title>
+<item><title>Multi-vehicle crash closes I-80 westbound near Magna - KUTV</title><link>https://news.example/a</link>
+<guid isPermaLink="false">guid-a</guid><pubDate>Thu, 15 Oct 2026 15:00:00 GMT</pubDate><source url="https://kutv.com">KUTV</source></item>
+<item><title>I-80 westbound reopens after multi-vehicle crash near Magna, Utah - ABC4 Utah</title><link>https://news.example/b</link>
+<guid isPermaLink="false">guid-b</guid><pubDate>Thu, 15 Oct 2026 15:40:00 GMT</pubDate><source url="https://www.abc4.com">ABC4 Utah</source></item>
+<item><title>Driver identified after fatal crash in Canton - WWNY</title><link>https://news.example/c</link>
+<guid isPermaLink="false">guid-c</guid><pubDate>Thu, 15 Oct 2026 14:00:00 GMT</pubDate><source url="https://www.wwnytv.com">WWNY</source></item>
+<item><title>Injury lawyers explain what to do after a car crash - Example Law Blog</title><link>https://news.example/d</link>
+<guid isPermaLink="false">guid-d</guid><pubDate>Thu, 15 Oct 2026 13:00:00 GMT</pubDate><source url="https://law.example">Example Law Blog</source></item>
+<item><title>Two-vehicle crash in Waterford sends three to hospital - RTE.ie</title><link>https://news.example/e</link>
+<guid isPermaLink="false">guid-e</guid><pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate><source url="https://www.rte.ie">RTE.ie</source></item>
+<item><title>Rollover crash in Canton slows traffic - Example Times</title><link>https://news.example/f</link>
+<guid isPermaLink="false">guid-f</guid><pubDate>Thu, 15 Oct 2026 16:00:00 GMT</pubDate><source url="https://times.example">Example Times</source></item>
+</channel></rss>
