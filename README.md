@@ -51,7 +51,7 @@ SAURON_TRANSPORT=local python -m src
 Tests:
 
 ```sh
-pytest                                              # 164 tests, offline
+pytest                                              # 175 tests, offline
 docker compose up -d kafka kafka-init
 SAURON_KAFKA_TEST=1 pytest tests/integration        # against a real broker
 ```
@@ -69,6 +69,36 @@ SAURON_KAFKA_TEST=1 pytest tests/integration        # against a real broker
 Every incident shows its **verification** (official, model estimate, corroborated, unverified), **location
 confidence** (source point/area, geocoded high/medium, low, unresolved), state, clear reason, evidence and
 history.
+
+Around that core:
+
+- **Feed health.** Every poll ends as a success (zero items is normal) or a named failure (`timeout`, `connection`,
+  `http_<code>`, `parse`, `publish`, `internal`); NWS uses ETag conditional requests and honours `Retry-After`.
+- **Correlation.** Same event id, CAP references, USGS alternate ids, Open-Meteo series, then roadway reports in the
+  same or neighbouring H3 cell within ±180 minutes, rejected when they name different roads or directions.
+- **Replay.** Kafka holds what the sources said, so improved mappers can be replayed over old data; writes are
+  idempotent through content-hash versioning.
+- **Dashboard.** Incidents, map (markers, clusters, heatmap, warning polygons; no WebGL), source events, analytics
+  and system health, with filters, light/dark themes, CSV export and per-incident reports.
+- **API.** Incidents with filters, bounding box and keyset pagination; incident detail with evidence and history;
+  NWS alerts covering a point during a time window; `/healthz` and `/readyz`.
+- **Monitoring.** Prometheus metrics and alert rules, a provisioned Grafana dashboard, JSON logs.
+- **Security.** Loopback by default; refuses a public address without a password or API token; constant-time
+  credential checks; unprivileged container.
+
+## What it does not do
+
+- It is not a live traffic feed: news is usually published hours after an incident.
+- It does not guess locations. A headline that names no place, or an ambiguous one, stays off the map.
+- It does not claim damage. A warning covering a location is not evidence that the location was damaged, and no
+  clear reason claims a hazard physically ended.
+- It does not promise exactly-once delivery; it is at-least-once with idempotent writes.
+- It collects no person-level data.
+- It is not a multi-user product: no accounts, audit log or billing; TLS belongs in a reverse proxy.
+- It is not licensed for commercial use as configured (Open-Meteo free tier, Google News headlines).
+- The property and storm-intelligence report is [designed](docs/storm-intelligence-design.md), not built.
+
+See also [Known limitations](#known-limitations).
 
 ## Engineering problems solved
 
@@ -119,6 +149,32 @@ broker, restart reprocessed 0 messages and a full replay changed nothing.
 letters; new NWS alerts were queryable a median 67 s after publication (n=6). Short window; details in
 [docs/data-quality.md](docs/data-quality.md#live-run).
 
+## Technologies
+
+| Area | Technology |
+|---|---|
+| Language | Python 3.12 |
+| Streaming | Apache Kafka 3.9.1 (KRaft, single node), kafka-python 2.2.15 |
+| Storage | SQLite in WAL mode |
+| Geospatial | H3 4.5.0, US Census Gazetteer 2025, point-in-polygon and Douglas-Peucker in `src/geo.py`, optional Nominatim |
+| Ingestion | requests 2.32.4, feedparser 6.0.11, PyYAML 6.0.2 |
+| Dashboard | Dash 3.1.1 (Flask), dash-bootstrap-components 2.0.3, Plotly 6.2.0, pandas 2.3.1 |
+| Maps | Leaflet 1.9.4, Leaflet.markercluster 1.5.3, Leaflet.heat 0.2.0; USGS The National Map and OpenStreetMap tiles |
+| Observability | prometheus_client 0.22.1, Prometheus 2.53.0, Grafana 11.1.0 |
+| Packaging | Docker (python:3.12-slim, non-root), Docker Compose |
+| Testing | pytest 9.1.1 |
+| Project site | Static HTML, CSS and JavaScript, deployed on Vercel |
+
+Apache Spark, Neo4j and Redis were part of the original design and were removed; the reasons are in
+[docs/architecture.md](docs/architecture.md#decisions).
+
+## Project site
+
+`site/` is a static page describing the project, with an interactive map and table of the offline demo's real
+output. `python -m tools.build_site` regenerates `site/data/demo.json` from the bundled fixtures, and a test fails if
+the committed file is stale. Vercel serves `site/` as static files (`vercel.json`); the pipeline itself needs
+long-running threads, a Kafka broker and a writable database, so it does not run there.
+
 ## Documentation
 
 - [Architecture and design decisions](docs/architecture.md): why Spark, Neo4j and Redis were removed
@@ -147,11 +203,12 @@ letters; new NWS alerts were queryable a median 67 s after publication (n=6). Sh
 
 ```
 src/            pipeline: ingestion/, schema, geocoding, incidents, processor, store, dashboard, api
-tools/          demo, gazetteer download, evaluation, benchmark, legacy-data migration
+tools/          demo, gazetteer download, evaluation, benchmark, legacy-data migration, site export
 tests/          unit and integration tests, real source fixtures
 eval/           labeled headlines and evaluation results
 monitoring/     Prometheus config and alert rules, Grafana provisioning
 config/         pipeline config, outlet markets
+site/           static project site (Vercel) and its demo data
 docs/
 ```
 

@@ -8,6 +8,8 @@ venv/
 .venv/
 .env
 
-archive/
-data/
-reports/
+/archive/
+/data/
+/reports/
+.vercel
+.env*.local

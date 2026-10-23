@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAURON Hazard Pipeline</title>
+<meta name="description" content="SAURON: a multi-source geospatial hazard pipeline. What it does, what it does not do, the technology it uses, measured results and an interactive demo of its real output.">
+<meta name="color-scheme" content="dark light">
+<meta property="og:title" content="SAURON Hazard Pipeline">
+<meta property="og:description" content="Public hazard feeds turned into one auditable incident record: NWS, USGS, Open-Meteo, DataSF and news, placed only as precisely as the evidence allows.">
+<meta property="og:image" content="assets/screens/dashboard-map.jpg">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/leaflet/leaflet.css">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/leaflet/leaflet.js" defer></script>
+<script src="assets/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#top" aria-label="SAURON home">
+      <img src="assets/logo.svg" alt="" width="34" height="22">
+      <span>SAURON</span>
+    </a>
+    <nav aria-label="Sections">
+      <a href="#demo">Demo</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#stack">Stack</a>
+      <a href="#limits">Limits</a>
+      <a href="#results">Results</a>
+      <a href="#run">Run it</a>
+    </nav>
+    <a class="gh" href="https://github.com/YourFriendlyNeighborhoodDeveloper/sauron-geospatial">GitHub</a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Geospatial hazard pipeline</p>
+    <h1>Scattered public hazard feeds, turned into one auditable incident record.</h1>
+    <p class="lede">
+      SAURON ingests National Weather Service alerts, USGS earthquakes, Open-Meteo conditions, San Francisco
+      collision records and news headlines. It normalizes everything into one validated schema, puts each event on
+      the map only as precisely as the evidence allows, merges reports of the same incident and tracks every incident
+      from open to cleared. For any incident you can see which sources reported it, when, how its location was
+      determined and why it was cleared.
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="#demo">Explore the demo</a>
+      <a class="btn" href="https://github.com/YourFriendlyNeighborhoodDeveloper/sauron-geospatial">Source on GitHub</a>
+    </div>
+    <p class="note">
+      A personal engineering project. It runs locally with Docker Compose and has not been deployed for customers or
+      run at scale. This site is a static showcase: the pipeline itself is not running here.
+    </p>
+
+    <ul class="stats" aria-label="Measured results">
+      <li><b>5</b><span>public sources, each with health reporting</span></li>
+      <li><b>4%</b><span>wrong headline placements on a held-out set (was 49%)</span></li>
+      <li><b>0</b><span>messages reprocessed after a restart on a real Kafka broker</span></li>
+      <li><b>785/s</b><span>messages processed, p95 9.5 ms (one laptop)</span></li>
+      <li><b>175</b><span>offline tests, plus a real-broker integration test</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="demo" class="band">
+  <div class="wrap">
+    <h2>Interactive demo</h2>
+    <p class="section-lede">
+      This is the real processor's output for the source responses bundled with the project, captured from the live
+      feeds on 2026-10-15 and pinned to 17:00 UTC. It is the same data <code>python -m src --demo</code> serves, exported
+      as a static snapshot by <code>python -m tools.build_site</code>. Click a shape, point or row to see its evidence,
+      location basis and history.
+    </p>
+
+    <div class="demo-controls" role="group" aria-label="Incident state">
+      <button type="button" class="seg" data-state="all" aria-pressed="true">All <span id="count-all"></span></button>
+      <button type="button" class="seg" data-state="active" aria-pressed="false">Active <span id="count-active"></span></button>
+      <span id="demo-summary" class="muted"></span>
+    </div>
+
+    <div class="demo-grid">
+      <div class="map-card">
+        <div id="map" role="region" aria-label="Incident map"></div>
+        <p id="map-status" class="map-status" hidden></p>
+        <div id="legend" class="legend"></div>
+      </div>
+      <aside id="detail" class="detail" aria-live="polite">
+        <p class="muted">Select an incident on the map or in the table.</p>
+      </aside>
+    </div>
+
+    <div class="table-wrap">
+      <table class="incidents">
+        <thead>
+          <tr>
+            <th scope="col">Time (UTC)</th><th scope="col">Status</th><th scope="col">Severity</th><th scope="col">Type</th>
+            <th scope="col">Title</th><th scope="col">Location</th><th scope="col">Location basis</th><th scope="col">Verification</th>
+          </tr>
+        </thead>
+        <tbody id="incident-rows"></tbody>
+      </table>
+    </div>
+    <p class="fineprint">
+      News items in the demo are a fictional sample in the real Google News RSS format (test fixtures), so their links
+      and outlets are not shown. Everything else is real public data as published that day.
+    </p>
+
+    <h3 class="sub">The real dashboard during a live run</h3>
+    <div class="shots">
+      <figure>
+        <img src="assets/screens/dashboard-map.jpg" alt="SAURON dashboard map tab: NWS warning polygons across the US drawn on a USGS topographic basemap, with a High Wind Watch selected in the detail panel" loading="lazy" width="1440" height="900">
+        <figcaption>Map tab: 126 active NWS warning areas from a live Docker Compose run, drawn without WebGL.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/screens/dashboard-incidents.jpg" alt="SAURON dashboard incidents tab: a sortable table of active weather incidents with severity, type, title and location, and a detail panel" loading="lazy" width="1440" height="900">
+        <figcaption>Incidents tab: filters, a sortable table and the detail panel with times, region and affected area.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="capabilities">
+  <div class="wrap">
+    <h2>What it does</h2>
+
+    <div class="table-wrap">
+      <table class="plain stackable">
+        <thead><tr><th scope="col">Source</th><th scope="col">Becomes</th><th scope="col">Reliability</th></tr></thead>
+        <tbody>
+          <tr><td>NWS active alerts<br><span class="muted">one nationwide request</span></td><td>Weather incidents with the alert's own polygon or its forecast-zone polygons; updates linked through CAP references; cleared when the source expires or withdraws them</td><td>official</td></tr>
+          <tr><td>USGS earthquakes ≥ M2.5</td><td>Seismic events with magnitude, depth, PAGER alert and metadata; never treated as road incidents</td><td>official</td></tr>
+          <tr><td>Open-Meteo at configured points</td><td>Model-estimated wind, fog, ice, snow, heavy rain and thunderstorm conditions, with unit-checked thresholds</td><td>model</td></tr>
+          <tr><td>DataSF traffic collisions</td><td>Historical, point-located collision records (published 1-3 days late)</td><td>official, delayed</td></tr>
+          <tr><td>Google News RSS</td><td>Unverified road-incident reports, located only from places named in the headline; corroborated when two outlets report the same crash</td><td>media</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cards">
+      <article>
+        <h3>Ingestion with health</h3>
+        <p>Each feed polls on its own interval. Every poll ends as a success (zero items is normal) or a named failure:
+          <code>timeout</code>, <code>connection</code>, <code>http_&lt;code&gt;</code>, <code>parse</code>,
+          <code>publish</code>, <code>internal</code>. NWS uses ETag conditional requests; 429 and 5xx retry with backoff
+          that honours <code>Retry-After</code>. Quiet sources are told apart from broken ones.</p>
+      </article>
+      <article>
+        <h3>One validated schema</h3>
+        <p>Every source maps to schema version 2. Anything that fails validation is dead-lettered with its Kafka offset,
+          never stored. Units are requested explicitly and checked (km/h, mm, °C). Provenance records which fields came
+          from the source, which were inferred and how.</p>
+      </article>
+      <article>
+        <h3>Location with stated confidence</h3>
+        <p>Source point, source area, geocoded high or medium, ambiguous, or unresolved. Headlines are located only
+          from places they name, through the US Census Gazetteer. The outlet's market can choose between same-named
+          places but never supplies a location. Ambiguous names stay off the map.</p>
+      </article>
+      <article>
+        <h3>Real geometry</h3>
+        <p>NWS zone polygons are fetched once, simplified with Douglas-Peucker to about 50 m and cached. "Which warnings
+          covered this point" is exact point-in-polygon with hole support, not a centroid comparison. Point events get an
+          H3 cell (resolution 7) for correlation.</p>
+      </article>
+      <article>
+        <h3>Deterministic correlation</h3>
+        <p>Same event id, then CAP references for NWS updates and alternate ids for USGS, then Open-Meteo series, then
+          roadway reports in the same or neighbouring H3 cell within ±180 minutes, rejected when they name different roads
+          or opposite directions. Two outlets on one crash make it <em>corroborated</em>.</p>
+      </article>
+      <article>
+        <h3>Incident lifecycle</h3>
+        <p><code>open</code> → <code>updated</code> → <code>cleared</code>, with separate reasons: source expired, source
+          withdrawn, not re-observed, observation window elapsed, reported reopened. None of them claims the hazard
+          physically ended. A cleared incident reopens when new, unexpired evidence arrives.</p>
+      </article>
+      <article>
+        <h3>Durable and replayable</h3>
+        <p>Kafka keeps what the sources said, not SAURON's interpretation, so improved mappers can be replayed over old
+          data. Offsets are committed only after storage, and writes are idempotent through content-hash versioning.
+          Replaying into a fresh store gives an identical result.</p>
+      </article>
+      <article>
+        <h3>Dashboard</h3>
+        <p>Plotly Dash with incidents, map, source events, analytics and system health tabs. Filters for time, state,
+          category, US state, severity and location quality. Leaflet map with markers, clusters or heatmap over USGS and
+          OpenStreetMap basemaps; no WebGL needed. Light and dark themes, CSV export, per-incident reports.</p>
+      </article>
+      <article>
+        <h3>Read-only JSON API</h3>
+        <p>Incidents with filters, bounding box and keyset pagination; incident detail with every piece of evidence and
+          its state history; NWS alerts covering a point during a time window; <code>/healthz</code> and
+          <code>/readyz</code> with per-feed status.</p>
+      </article>
+      <article>
+        <h3>Observability</h3>
+        <p>Prometheus metrics for poll outcomes, response times, rejects and filter reasons, duplicates suppressed,
+          geocoder outcomes, dead letters, consumer lag and publication-to-available latency. Alert rules never fire on
+          zero events. A Grafana dashboard is provisioned automatically. Logs are JSON lines.</p>
+      </article>
+      <article>
+        <h3>Security and privacy</h3>
+        <p>Binds to loopback by default and refuses a public address without a password or API token. Credentials are
+          compared in constant time; the container runs unprivileged. Event-level data only: person-level contact
+          enrichment was removed, and follow-up headlines, the ones that name victims, are filtered out.</p>
+      </article>
+      <article>
+        <h3>Evaluation tooling</h3>
+        <p>Hand-labeled development and held-out headline sets, with code hashes recorded before the holdout was viewed.
+          Scripts for geocoding evaluation, throughput benchmarking and migrating the original pipeline's output with
+          verified backups.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="architecture" class="band">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <p class="section-lede">
+      One Python process (feed threads, processor, maintenance loop, dashboard and API) and a single-node Kafka broker.
+      Prometheus and Grafana are optional observers.
+    </p>
+    <ol class="flow">
+      <li><b>Public sources</b><span>NWS · USGS · Open-Meteo · DataSF · news RSS</span></li>
+      <li><b>Feed threads</b><span>poll, validate the response, dedupe, record health, back off on failure</span></li>
+      <li><b>Kafka <code>hazards.raw</code></b><span>raw envelopes, <code>acks=all</code>, 14-day retention</span></li>
+      <li><b>Processor</b><span>normalize, validate, geocode, correlate, lifecycle; commit offsets after store</span></li>
+      <li><b>SQLite (WAL)</b><span>source events, incidents, history, feed status, dead letters</span></li>
+      <li><b>Dashboard + API</b><span>Dash UI, read-only JSON API, incident reports and CSV</span></li>
+    </ol>
+    <p class="flow-side"><b>Also:</b> the US Census Gazetteer feeds the processor's geocoder; feeds and processor expose
+      <code>/metrics</code> to Prometheus, which feeds Grafana.</p>
+
+    <h3 class="sub">Delivery guarantees</h3>
+    <ul class="ticks">
+      <li>At-least-once delivery with idempotent writes. There is no claim of exactly-once.</li>
+      <li>A crash between storing and committing replays part of a batch; a version is only added when its content hash changes.</li>
+      <li>If SQLite fails, the batch rolls back, the consumer seeks back and retries. Nothing is committed.</li>
+      <li>A message that cannot be parsed or validated goes to <code>dead_letters</code> with its offset, so one bad message cannot block the partition.</li>
+      <li>Incident ids derive from the first source event and history uses source times, so replaying the same log reproduces the same store.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <h2>Technologies</h2>
+    <div class="table-wrap">
+      <table class="plain stack stackable">
+        <thead><tr><th scope="col">Area</th><th scope="col">Technology</th><th scope="col">Used for</th></tr></thead>
+        <tbody>
+          <tr><td>Language</td><td>Python 3.12</td><td>The whole pipeline: feeds, processor, store, dashboard, API, tools</td></tr>
+          <tr><td>Streaming</td><td>Apache Kafka 3.9.1 (KRaft, single node), kafka-python 2.2.15</td><td>Durable raw log with consumer-group offsets; replay</td></tr>
+          <tr><td>Storage</td><td>SQLite in WAL mode</td><td>Events, incidents, history, caches, feed status; indexed time, category and bounding-box queries</td></tr>
+          <tr><td>Geospatial</td><td>H3 4.5.0; US Census Gazetteer 2025; own point-in-polygon and Douglas-Peucker; optional Nominatim</td><td>Correlation cells, place-name geocoding, warning-area queries, polygon simplification</td></tr>
+          <tr><td>Ingestion</td><td>requests 2.32.4, feedparser 6.0.11, PyYAML 6.0.2</td><td>HTTP polling with retries and ETags, RSS parsing, configuration</td></tr>
+          <tr><td>Dashboard</td><td>Dash 3.1.1 (Flask), dash-bootstrap-components 2.0.3, Plotly 6.2.0, pandas 2.3.1</td><td>Tabs, filters, tables, analytics charts, CSV export</td></tr>
+          <tr><td>Maps</td><td>Leaflet 1.9.4, Leaflet.markercluster 1.5.3, Leaflet.heat 0.2.0; USGS The National Map and OpenStreetMap tiles</td><td>Points, clusters, heatmap and warning polygons without WebGL</td></tr>
+          <tr><td>Observability</td><td>prometheus_client 0.22.1, Prometheus 2.53.0, Grafana 11.1.0</td><td>Metrics, alert rules, provisioned dashboard</td></tr>
+          <tr><td>Packaging</td><td>Docker (python:3.12-slim, non-root), Docker Compose</td><td>Kafka, topic init, app, Prometheus and Grafana, all on 127.0.0.1</td></tr>
+          <tr><td>Testing</td><td>pytest 9.1.1</td><td>Fixture-based tests on real captured responses; real-broker integration test</td></tr>
+          <tr><td>This site</td><td>Static HTML, CSS and JavaScript on Vercel</td><td>Showcase and demo snapshot; no server code</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub">Removed, and why</h3>
+    <div class="cards three">
+      <article>
+        <h3>Apache Spark</h3>
+        <p>It copied <code>hazards.raw</code> byte for byte into another topic and kept its checkpoint in
+          <code>/tmp</code>, so every restart re-forwarded the whole topic. Consuming the raw topic directly is the same
+          input with one fewer copy.</p>
+      </article>
+      <article>
+        <h3>Neo4j</h3>
+        <p>It stored one node per event with no relationships, and every query was a full scan. SQLite with indexes fits
+          an append-mostly, single-writer workload of a few thousand events a day.</p>
+      </article>
+      <article>
+        <h3>Redis</h3>
+        <p>It held deduplication and a geocoding cache without persistence. Deduplication now lives in the store; the
+          zone-geometry and optional Nominatim caches are in SQLite and survive restarts.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="limits" class="band">
+  <div class="wrap">
+    <h2>What it does not do</h2>
+    <ul class="crosses">
+      <li><b>It is not a live traffic feed.</b> News is polled every 5 minutes and is usually published hours after an incident; it is a signal.</li>
+      <li><b>It does not guess locations.</b> Most headlines cannot be located from their text: 35 of 58 held-out headlines with a known place stay unresolved rather than being placed wrongly.</li>
+      <li><b>It does not claim damage.</b> A warning covering a location is not evidence that the location was damaged, and no clear reason claims a hazard physically ended.</li>
+      <li><b>It has no historical backfill.</b> Only data collected while it runs is searchable.</li>
+      <li><b>It does not promise exactly-once delivery.</b> It is at-least-once with idempotent writes.</li>
+      <li><b>It is not built for large scale.</b> Single process, one broker partition and SQLite: thousands of events a day, not millions.</li>
+      <li><b>It collects no person-level data.</b> Contact enrichment was removed; headlines naming victims are filtered.</li>
+      <li><b>It is not a multi-user product.</b> No accounts, audit log or billing; access is a shared bearer token or basic auth, and TLS belongs in a reverse proxy.</li>
+      <li><b>It is not licensed for commercial use as configured.</b> Open-Meteo's free tier and Google News headlines are non-commercial; a paid Open-Meteo key or disabling those feeds is required.</li>
+      <li><b>Locations have known coarseness.</b> County-level points are county centroids (100+ km off in large counties); NWS zone polygons are simplified to about 50 m.</li>
+      <li><b>Some things are not measured yet.</b> Weather false-positive rate against station observations, precision of cross-source news merging, and operation beyond about an hour of live runs.</li>
+      <li><b>It does not run on Vercel.</b> The pipeline needs long-running threads, a Kafka broker and a writable database; this page is a static showcase.</li>
+    </ul>
+    <p class="fineprint">
+      Designed but not built: a property and storm-intelligence report (address plus date range, NWS warnings, storm
+      reports, station observations and radar hail estimates, each kept as a separate evidence class).
+      <a href="https://github.com/YourFriendlyNeighborhoodDeveloper/sauron-geospatial/blob/main/docs/storm-intelligence-design.md">Read the design</a>.
+    </p>
+  </div>
+</section>
+
+<section id="results">
+  <div class="wrap">
+    <h2>Measured results</h2>
+    <p class="section-lede">Measured on 2026-10-15 on one Apple-silicon laptop. Method, commands and caveats are in
+      <a href="https://github.com/YourFriendlyNeighborhoodDeveloper/sauron-geospatial/blob/main/docs/data-quality.md">docs/data-quality.md</a>.</p>
+
+    <div class="results">
+      <div>
+        <h3>Headline geocoding, held-out set</h3>
+        <p class="muted">78 hand-labeled headlines, labeled after the code was frozen; 58 have a known place.</p>
+        <div class="table-wrap">
+          <table class="plain num">
+            <thead><tr><th scope="col"></th><th scope="col">Original</th><th scope="col">Current</th></tr></thead>
+            <tbody>
+              <tr><td>Wrong placements</td><td>23 of 47 (49%)</td><td>1 of 23 (4%)</td></tr>
+              <tr><td>Correct, of 58</td><td>19</td><td>22</td></tr>
+              <tr><td>Left unresolved, of 58</td><td>19</td><td>35</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted">The gain is in not placing incidents wrongly; coverage stays limited by what headlines say.</p>
+      </div>
+      <div>
+        <h3>Everything else</h3>
+        <dl class="facts">
+          <dt>News classification</dt><dd>Incident vs follow-up vs other on the holdout: precision 0.947, recall 1.0</dd>
+          <dt>Weather rules</dt><dd>Of 1,343 historical wind "hazards", 8 (0.6%) qualify under corrected units; none of 136 "snow" hazards do</dd>
+          <dt>Replay</dt><dd>On a real broker, a restart reprocessed 0 messages and a full replay changed nothing</dd>
+          <dt>Throughput</dt><dd>785 messages/s first pass (p95 9.5 ms); 2,422/s on replay</dd>
+          <dt>Live run</dt><dd>11 minutes on Docker Compose: 17 of 17 polls succeeded, 178 events stored, 0 dead letters; new NWS alerts were queryable a median 67 s after publication (n=6)</dd>
+        </dl>
+      </div>
+    </div>
+
+    <h3 class="sub">Problems found in the original code and fixed</h3>
+    <ul class="ticks">
+      <li><b>Silent failure.</b> The NWS parser decoded JSON twice and swallowed the error: 0 of 525 live alerts were ever produced.</li>
+      <li><b>Unit errors.</b> km/h gusts were compared with an m/s threshold and metres with a kilometre threshold, so 1,343 of 1,509 weather "hazards" were ordinary breezes and fog could never fire.</li>
+      <li><b>Replay duplication.</b> A pass-through Spark job with a <code>/tmp</code> checkpoint and a consumer with no group re-processed the whole topic on every restart: 18,451 CSV rows for 4,753 hazards.</li>
+      <li><b>Geographic ambiguity.</b> "Crash in Canton" could be in any of a dozen states; ambiguous names are now left unmapped.</li>
+      <li><b>Areas vs points.</b> County-wide warnings keep their polygons instead of collapsing to a centroid.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="run" class="band">
+  <div class="wrap">
+    <h2>Run it yourself</h2>
+    <div class="run">
+      <div>
+        <h3>Offline demo</h3>
+        <p class="muted">No network, broker or credentials. Opens on 127.0.0.1:8050.</p>
+        <pre><code>python -m venv .venv
+. .venv/bin/activate
+pip install -r requirements-dev.txt
+python -m src --demo</code></pre>
+      </div>
+      <div>
+        <h3>Live, with Docker</h3>
+        <p class="muted">Dashboard :8050, Prometheus :9090, Grafana :3000, all on 127.0.0.1.</p>
+        <pre><code>cp .env.example .env
+docker compose up -d --build</code></pre>
+      </div>
+      <div>
+        <h3>Tests</h3>
+        <p class="muted">Offline suite, then against a real broker.</p>
+        <pre><code>pytest
+docker compose up -d kafka kafka-init
+SAURON_KAFKA_TEST=1 pytest tests/integration</code></pre>
+      </div>
+    </div>
+
+    <h3 class="sub" id="api">API</h3>
+    <div class="table-wrap">
+      <table class="plain stackable">
+        <thead><tr><th scope="col">Endpoint</th><th scope="col">Returns</th></tr></thead>
+        <tbody>
+          <tr><td><code>GET /api/v1/incidents</code></td><td>Incidents filtered by state, category, type, time, bbox, location quality and text; keyset pagination</td></tr>
+          <tr><td><code>GET /api/v1/incidents/{id}</code></td><td>One incident with GeoJSON geometry, every piece of evidence and its state history</td></tr>
+          <tr><td><code>GET /api/v1/alerts/at</code></td><td>Every stored NWS alert version whose polygon contains a point during a time window</td></tr>
+          <tr><td><code>GET /healthz</code>, <code>/readyz</code></td><td>Liveness; store counts and per-feed health</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="api-examples"></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>
+      Data: NWS, USGS and US Census data are public domain; DataSF under its open data terms; Open-Meteo under CC BY 4.0.
+      Basemaps: U.S. Geological Survey The National Map and © OpenStreetMap contributors. Map library: Leaflet (BSD-2-Clause).
+    </p>
+    <p>
+      "Sauron" is a character from J.R.R. Tolkien's works; this is a personal, non-commercial project.
+      <a href="https://github.com/YourFriendlyNeighborhoodDeveloper/sauron-geospatial">Source and documentation on GitHub</a>.
+    </p>
+  </div>
+</footer>
+</body>
+</html>

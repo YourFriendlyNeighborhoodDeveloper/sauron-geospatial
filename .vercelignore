@@ -1,0 +1,5 @@
+# The Vercel deployment is the static project site only.
+/*
+!/site
+!/vercel.json
+.DS_Store
