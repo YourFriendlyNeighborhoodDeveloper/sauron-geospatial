@@ -11,6 +11,9 @@ can see which sources reported it, when, how its location was determined, and wh
 
 This is a personal engineering project. It has not been deployed for customers or run at scale.
 
+**Project site:** [sauron-geospatial.vercel.app](https://sauron-geospatial.vercel.app), with an interactive map of the
+offline demo's output. It is a static snapshot; the pipeline itself runs locally ([Try it](#try-it)).
+
 ```mermaid
 flowchart LR
   sources[NWS · USGS · Open-Meteo<br/>DataSF · news RSS] --> feeds[Feed threads<br/>health + dedupe]
